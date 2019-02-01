@@ -1,7 +1,7 @@
 {
   "name": "class30",
   "version": "2.1.0",
-  "description": "备课资源多项目管理",
+  "description": "webpack多项目打包管理",
   "author": "Doudou",
   "private": true,
   "scripts": {
