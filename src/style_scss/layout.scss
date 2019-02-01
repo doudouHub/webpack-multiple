@@ -1,0 +1,157 @@
+@import 'config';
+@import "animate/animate";
+
+* {
+    -webkit-box-sizing          : border-box;
+    -moz-box-sizing             : border-box;
+    box-sizing                  : border-box;
+    -webkit-tap-highlight-color : transparent;
+}
+
+*.animated {
+    animation-duration : .3s;
+}
+
+.list-none {
+    margin     : 0 auto;
+    padding    : 0;
+    list-style : none;
+}
+
+.text-center {
+    text-align : center;
+}
+
+.pull-left {
+    float : left;
+}
+
+.pull-right {
+    float : right;
+}
+
+.dis-table {
+    display : table;
+    &.ver-mid {
+        .dis-tab-cell {
+            vertical-align : middle;
+        }
+    }
+    &.ver-top {
+        .dis-tab-cell {
+            vertical-align : top;
+        }
+    }
+    &.ver-bot {
+        .dis-tab-cell {
+            vertical-align : bottom;
+        }
+    }
+}
+
+.ver-mid {
+    vertical-align : middle;
+}
+
+.ver-top {
+    vertical-align : top;
+}
+
+.dis-tab-header-group {
+    display : table-header-group;
+}
+
+.dis-tab-group {
+    display : table-row-group;
+}
+
+.dis-tab-row {
+    display : table-row;
+}
+
+.dis-tab-cell {
+    display : table-cell;
+}
+
+// 点击元素，添加点击透明效果
+.click-element {
+    cursor : pointer;
+    &:active {
+        opacity : .6;
+    }
+}
+
+/* 禁止鼠标选中文本 */
+.noselect {
+    -webkit-touch-callout : none; /* iOS Safari */
+    -webkit-user-select   : none; /* Chrome/Safari/Opera */
+    -khtml-user-select    : none; /* Konqueror */
+    -moz-user-select      : none; /* Firefox */
+    -ms-user-select       : none; /* Internet Explorer/Edge */
+    user-select           : none;
+}
+
+// 页面穿透
+.nopointer {
+    pointer-events : none;
+}
+
+.clearfix {
+    &:before, &:after {
+        display : table;
+        content : " ";
+    }
+    &:after {
+        clear : both;
+    }
+}
+
+body {
+    margin           : 0;
+    padding          : 0;
+    font       : {
+        family : $fontFamily;
+        size   : $fontSize;
+    }
+    line-height      : $lineHeight;
+    color            : $color;
+    background-color : #f2f2f2;
+}
+
+button, .el-input__inner {
+    font-family : $fontFamily;
+}
+
+.el-button {
+    font-family : $fontFamily;
+    &.el-button--primary {
+        background-color : $mainColor;
+    }
+}
+
+.layout-line {
+    background-color : #ccc;
+    border           : none;
+    height           : 1px;
+}
+
+.img-container {
+    padding-top : 56.2%;
+    background   : {
+        size     : cover;
+        position : center center;
+        repeat   : no-repeat;
+    }
+}
+
+.page-header {
+
+}
+
+.page-container {
+    height : 100%;
+}
+
+.page-footer {
+
+}
