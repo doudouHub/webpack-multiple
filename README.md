@@ -1,6 +1,6 @@
 # webpack多项目打包管理 #
 
-根据项目业务需要，处理多项目并存的打包的情况，共享一个开发环境，独立打包每一个项目。
+根据项目业务需要，处理多项目并存的打包的情况，共享一个开发环境，独立打包每一个项目。（支持element-ui的scss按需加载）
 
 ## 安装
 npm依赖包安装，建议安装cnpm：https://npm.taobao.org/
@@ -8,15 +8,11 @@ npm依赖包安装，建议安装cnpm：https://npm.taobao.org/
 ```
    # web端环境安装
    cnpm i
-
 ```
 
 ## 调试
 
->调试
-
-> **npm run dev** - 默认运行第一个项目
->> 地址：localhost:8084
+> **npm run dev** - 默认运行第一个项目 地址：localhost:8084
 
 >  **npm run dev --proj=$projectName** - 单独运行$projectName(项目名)
 

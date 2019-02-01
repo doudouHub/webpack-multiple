@@ -8,7 +8,7 @@ import config from './config'
 import { sessionSave } from 'src/utils'
 
 // 基地址
-config.baseURL = process.env.NODE_ENV === 'development' ? BASE_URL : (location.protocol.indexOf('http') > -1 ? '' : sessionSave.get('baseUrl'));
+config.baseURL = process.env.NODE_ENV === 'development' ? BASE_URL : '';
 
 const service = axios.create(config);
 
