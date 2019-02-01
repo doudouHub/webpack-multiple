@@ -3,6 +3,7 @@ const utils = require('./utils')
 const webpack = require('webpack')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 // 当前需要编译的项目名
 const buildProjectName = require('../config/projects');
 
@@ -12,7 +13,8 @@ function resolve (dir) {
 
 module.exports = {
     entry: {
-        app: ['babel-polyfill', 'project/main.js'],
+        'app': 'project/main.js',
+        'babel-polyfill': 'babel-polyfill',
         'vender-base': 'project/vendors/vendors.base.js',
         'vender-exten': 'project/vendors/vendors.exten.js'
     },
@@ -29,7 +31,7 @@ module.exports = {
             'vue$': 'vue/dist/vue.common.js',
             'static': resolve('static'),
             'src': resolve('src'),
-            'project': resolve(`src/projects/${buildProjectName}`),
+            'project': resolve(`projects/${buildProjectName}`),
             'assets': resolve('project/assets'),
             'components': resolve('src/components')
         },
@@ -45,7 +47,7 @@ module.exports = {
                 loader: 'vue-loader',
                 options: vueLoaderConfig
             },
-               {
+            {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 include: [resolve('src'), resolve('project'), resolve('test')]
@@ -55,8 +57,7 @@ module.exports = {
                 loader: 'url-loader',
                 query: {
                     limit: 1000,
-                    name: utils.assetsPath('img/[name].[hash:7].[ext]'),
-                    // publicPath:'assets'
+                    name: utils.assetsPath('img/[name].[ext]')
                 }
             },
             {
@@ -65,6 +66,14 @@ module.exports = {
                 query: {
                     limit: 10000,
                     name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+                }
+            },
+            {
+                test: /\.(mp3|wav)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 1000,
+                    name: utils.assetsPath('audios/[name].[ext]')
                 }
             },
             {

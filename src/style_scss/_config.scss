@@ -1,8 +1,17 @@
 // 网站样式配置
 @import "mixins";
 
-$mainColor:#0199ff;
-$subColor:#91d7fe;
+// 主色调
+$mainColor : #00caaf;
+// 主色调搭配的字体颜色
+$mainFontColor : #fff;
+// 主色调边框
+$mainBorderColor:#06b59d;
+
+// 辅助色
+$subColor:#f56c6c;
+$subBorderColor:#ff5a5a;
+
 $color : #333;
 
 $fontFamily : 微软雅黑, Microsoft YaHei, Verdana, Arial, Helvetica, sans-serif;

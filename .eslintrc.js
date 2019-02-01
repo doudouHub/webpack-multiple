@@ -6,7 +6,7 @@ module.exports = {
         parser: 'babel-eslint'
     },
     env: {
-        "node": true,
+        'node': true,
         browser: true
     },
     extends: [
@@ -25,12 +25,12 @@ module.exports = {
         'generator-star-spacing': 'off',// 生成器函数*的前后空格
         'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',// 禁止使用debugger
         'indent': [0, 4, {'SwitchCase': 1}],// 空格2个
-        "quotes": [0, "single"],// 引号类型 `` "" ''
+        'quotes': [0, 'single'],// 引号类型 `` "" ''
         'brace-style': [0, '1tbs', {'allowSingleLine': true}],// if while function 后面的{必须与if在同一行，java风格。
-        "semi": [0, "always"],// 语句强制分号结尾
-        "one-var": 0,// 连续声明
-        "camelcase": 1,// 强制驼峰写法
-        "no-undef": 1,// 不能有未定义的变量
+        'semi': [0, 'always'],// 语句强制分号结尾
+        'one-var': 0,// 连续声明
+        'camelcase': 1,// 强制驼峰写法
+        'no-undef': 1// 不能有未定义的变量
 
         // "no-alert": 0,//禁止使用alert confirm prompt
         // "no-array-constructor": 2,//禁止使用数组构造器
@@ -198,4 +198,4 @@ module.exports = {
         // "wrap-regex": 0,//正则表达式字面量用小括号包起来
         // "yoda": [2, "never"]//禁止尤达条件
     }
-}
+};

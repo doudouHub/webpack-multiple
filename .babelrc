@@ -15,7 +15,7 @@
             [
                 {
                     "libraryName": "element-ui",
-                    "styleLibraryName": "theme-chalk"
+                    "styleLibraryName": "~element-theme-drop"
                 }
             ]
         ]

@@ -23,23 +23,24 @@ module.exports = merge(baseWebpackConfig, {
     devtool: '#cheap-module-eval-source-map',
     plugins: [
         new webpack.DefinePlugin({
-            'process.env': config.dev.env
+            'process.env': config.dev.env,
+            'BASE_URL': '"/api"'
         }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new HtmlWebpackPlugin({
-            filename: `index.html`,
-            template: `src/projects/${buildProjectName}/index.html`,
+            filename: 'index.html',
+            template: `projects/${buildProjectName}/index.html`,
             inject: true
         }),
         new CopyWebpackPlugin([
             {
-                from: path.resolve(`src/projects/${buildProjectName}/assets`),
+                from: path.resolve(`projects/${buildProjectName}/assets`),
                 to: 'assets'
             },
             {
-                from: path.resolve(`src/projects/${buildProjectName}/extraContent/activity_detail`),
-                to: 'activity_detail'
+                from: path.resolve(`projects/${buildProjectName}/extraContent`),
+                to: ''
             }
         ]),
         new FriendlyErrorsPlugin()

@@ -1,7 +1,7 @@
 const utils = require('../build/utils');
 const shell = require('shelljs');
 // 当前项目集合
-let allProjects = utils.getAllDirs('src/projects');
+let allProjects = utils.getAllDirs('projects');
 
 // 当前需要编译的项目名
 const buildProjectName = require('./projects');

@@ -6,7 +6,7 @@
 npm依赖包安装，建议安装cnpm：https://npm.taobao.org/
 
 ```
-    # web端环境安装
+   # web端环境安装
    cnpm i
 
 ```
@@ -38,11 +38,13 @@ npm依赖包安装，建议安装cnpm：https://npm.taobao.org/
 
 `config/index` - 打包地址配置
 
-`src/projects` - 项目目录
+`projects` - 项目目录
 
-`src/projects/$projetName/debug__build` - 编译调试快捷方式
+`src/element-theme-drop` - 废弃element-ui原有的样式打包，采用scss的方式
 
-`src/projects/$projetName/extraContent` - 额外打包内容
+`projects/$projetName/debug__build` - 编译调试快捷方式
+
+`projects/$projetName/extraContent` - 额外打包内容
 
 ```
 ## 图片路径

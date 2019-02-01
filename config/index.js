@@ -8,24 +8,25 @@ const buildProjectName = require('./projects');
 module.exports = {
     build: {
         env: require('./prod.env'),
-        index: path.resolve(__dirname, `../dist/${buildProjectName}/main.html`),
+        index: path.resolve(__dirname, `../dist/${buildProjectName}/index.html`),
         assetsRoot: path.resolve(__dirname, `../dist/${buildProjectName}`),
         assetsSubDirectory: 'static',
         assetsPublicPath: './',
         productionSourceMap: false,
-        productionGzip: false,
+        productionGzip: true,
         productionGzipExtensions: ['js', 'css'],
         bundleAnalyzerReport: process.env.npm_config_report
     },
     dev: {
         env: require('./dev.env'),
         port: 8084,
-        autoOpenBrowser: false,
+        autoOpenBrowser: true,
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
         proxyTable: {
             '/api': {
-                target: 'http://jsonplaceholder.typicode.com',
+                // target: 'http://bk_service.iclass30.com:801',
+                target: 'http://test.iclass30.com:801',
                 changeOrigin: true,
                 pathRewrite: {
                     '/api': ''

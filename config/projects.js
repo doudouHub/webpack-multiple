@@ -4,7 +4,7 @@ const fs = require('fs')
 const buildProjectName = process.env.npm_config_proj;
 
 // 当前项目集合
-let allProjects = getAllDirs('src/projects');
+let allProjects = getAllDirs('projects');
 
 // 获取文件下所有一代子集目录
 function getAllDirs (mypath = '.') {

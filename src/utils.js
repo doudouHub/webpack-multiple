@@ -3,7 +3,8 @@
  **/
 
 import axios from 'axios'
-import {cefMsg} from 'callCplus'
+import Clipboard from 'clipboard'
+import {Message} from 'element-ui'
 
 // 全局发布订阅模式对象
 export const subsEvents = (() => {
@@ -42,6 +43,7 @@ export const subsEvents = (() => {
                 }
             }
         }
+        delete  list[key];
     };
     return {
         listen: listen,
@@ -50,6 +52,31 @@ export const subsEvents = (() => {
         list
     }
 })();
+
+export const handleClipboard = (text, event) => {
+    const clipboard = new Clipboard(event.target, {
+        text: () => text
+    })
+    clipboard.on('success', () => {
+        Message({
+            message: '复制成功',
+            type: 'success'
+        });
+        clipboard.off('error')
+        clipboard.off('success')
+        clipboard.destroy()
+    })
+    clipboard.on('error', () => {
+        Message({
+            message: '复制失败',
+            type: 'error'
+        });
+        clipboard.off('error')
+        clipboard.off('success')
+        clipboard.destroy()
+    })
+    clipboard.onClick(event)
+}
 
 export const getQueryString = (name, url) => {
     try {
@@ -69,13 +96,118 @@ export const getQueryString = (name, url) => {
     }
 }
 
+// 获取vw单位数值
+export const getVW = (value, width) => {
+    return (value / width) * 100;
+}
+
+// cookie存取操作
+export const cookieSave = {
+    // 设置cookies
+    set: function (name, value, days) {
+        let Days = days || 30;
+        let exp = new Date();
+        exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+        let expires = days ? `expires=${exp.toGMTString()}` : '';
+        // document.cookie = name + "=" + escape(JSON.stringify(value)) + ";expires=" + exp.toGMTString();
+        document.cookie = `${name}=${escape(JSON.stringify(value))};${expires}`;
+    },
+    // 读取cookies
+    get: function (name) {
+        if (document.cookie.length > 0) {
+            let c_start = document.cookie.indexOf(name + "=");
+            if (c_start != -1) {
+                c_start = c_start + name.length + 1;
+                let c_end = document.cookie.indexOf(";", c_start);
+                if (c_end == -1) c_end = document.cookie.length;
+
+                let _result = unescape(document.cookie.substring(c_start, c_end));
+                try {
+                    _result = JSON.parse(_result);
+                } catch (err) {
+                }
+                return _result;
+            }
+        }
+        return ""
+    },
+    // 删除cookies
+    del: function (name) {
+        let exp = new Date();
+        exp.setTime(exp.getTime() - 1);
+        let cval = cookieSave.get(name);
+        if (cval != null) document.cookie = name + "=" + cval + "expires=" + exp.toGMTString()
+    }
+}
+
+// 会话缓存读取操作
+export const sessionSave = {
+    get: function (key) {
+        let data = sessionStorage.getItem(key)
+        try {
+            data = JSON.parse(sessionStorage.getItem(key))
+        } catch (err) {
+            // console.log(err)
+        }
+        return data
+    },
+    set: function (key, val) {
+        val = JSON.stringify(val)
+        sessionStorage.setItem(key, val)
+    }
+}
+
+//格式化时间
+export const dateFormat = (fmt) => {
+    var curdate = new Date();
+    var o = {
+        "M+": curdate.getMonth() + 1, //月份
+        "d+": curdate.getDate() //日
+        // "h+" : date.getHours(),     //小时
+        // "m+" : date.getMinutes(),     //分
+        // "s+" : date.getSeconds(),     //秒
+    };
+    if (/(y+)/.test(fmt))
+        fmt = fmt.replace(
+            RegExp.$1,
+            (curdate.getFullYear() + "").substr(4 - RegExp.$1.length)
+        );
+    for (var k in o)
+        if (new RegExp("(" + k + ")").test(fmt))
+            fmt = fmt.replace(
+                RegExp.$1,
+                RegExp.$1.length == 1
+                    ? o[k]
+                    : ("00" + o[k]).substr(("" + o[k]).length)
+            );
+    return fmt;
+}
+
+// 非对象数组去重
+export const removeDuplicatedItem = (arr) => {
+    for (let i = 0; i < arr.length - 1; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[i] === arr[j]) {
+                arr.splice(j, 1);
+                j--;
+            }
+        }
+    }
+    return arr;
+}
+
 export default {
     install (Vue, options) {
-        Vue.prototype.$cefMsg = cefMsg;
         Vue.prototype.$axios = axios;
 
+        Vue.prototype.$getVW = getVW;
+        Vue.prototype.$removeDuplicatedItem = removeDuplicatedItem;
+        Vue.prototype.$handleClipboard = handleClipboard;
+
         // 获取连接参数
-        Vue.prototype.$getQueryString = getQueryString
+        Vue.prototype.$getQueryString = getQueryString;
+        Vue.prototype.$cookieSave = cookieSave;
+        Vue.prototype.$sessionSave = sessionSave;
 
         // 判断元素父节点是否包含class
         Vue.prototype.$parentIndexOf = (node, parentClassName) => {
@@ -169,9 +301,17 @@ export default {
             }
         }
 
-        // 插入字符串
-        Vue.prototype.$insertString = (start) => {
-
+        // 生成随机id
+        Vue.prototype.$createUuid = (start) => {
+            let s = [];
+            let hexDigits = "0123456789abcdef";
+            for (let i = 0; i < 36; i++) {
+                s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+            }
+            s[14] = "4";
+            s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1);
+            s[8] = s[13] = s[18] = s[23] = "-";
+            return s.join("");
         }
     }
 }

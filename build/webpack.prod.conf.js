@@ -41,11 +41,11 @@ const webpackConfig = merge(baseWebpackConfig, {
         // 拷贝版本信息json配置文件
         new CopyWebpackPlugin([
             {
-                from: `src/projects/${buildProjectName}/extraContent`,
+                from: `projects/${buildProjectName}/extraContent`,
                 to: config.build.assetsRoot
             },
             {
-                from: path.resolve(`src/projects/${buildProjectName}/assets`),
+                from: path.resolve(`projects/${buildProjectName}/assets`),
                 to: 'assets'
             }
         ], {copyUnmodified: true}),
@@ -63,7 +63,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         }),
         new HtmlWebpackPlugin({
             filename: config.build.index,
-            template: `./src/projects/${buildProjectName}/index.html`,
+            template: `./projects/${buildProjectName}/index.html`,
             inject: true,
             minify: {
                 removeComments: true,
@@ -73,7 +73,7 @@ const webpackConfig = merge(baseWebpackConfig, {
             chunksSortMode: 'dependency'
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            name: ['vender-exten', 'vender-base'],
+            name: ['vender-exten', 'vender-base', 'babel-polyfill'],
             minChunks: Infinity
         }),
         new webpack.optimize.CommonsChunkPlugin({

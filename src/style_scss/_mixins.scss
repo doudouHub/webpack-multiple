@@ -27,11 +27,11 @@
     @include stretch(false, $offset-right, false, $offset-left);
 }
 
-@function vw($px) {
-    @return ($px / 1536) * 100vw;
+@function vw($px,$width:1536) {
+    @return ($px / $width) * 100vw;
 }
 
-@function vh($px) {
-    @return ($px / 864) * 100vh;
+@function vh($px,$height:864) {
+    @return ($px / $height) * 100vh;
 }
 

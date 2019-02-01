@@ -1,0 +1,256 @@
+/* 改变主题色变量 */
+@import "../../../src/style_scss/config";
+
+$--color-primary : $mainColor;
+/* 改变 icon 字体路径变量，必需 */
+$--font-path : '~element-ui/lib/theme-chalk/fonts';
+
+/* Font
+-------------------------- */
+$--font-size-base : vw(14) !default;
+$--font-size-small : vw(13) !default;
+$--font-size-large : vw(18) !default;
+$--font-line-height-primary : vw(24) !default;
+
+/* Size
+-------------------------- */
+$--size-base : vw(14) !default;
+
+$--border-radius-base : vw(4) !default;
+$--border-radius-small : vw(2) !default;
+$--border-width-base : vw(1) !default;
+
+/* Checkbox
+-------------------------- */
+$--checkbox-font-size : vw(14) !default;
+$--checkbox-input-height : vw(14) !default;
+$--checkbox-input-width : vw(14) !default;
+
+$--checkbox-bordered-height : vw(40) !default;
+$--checkbox-bordered-padding : vw(9) vw(20) vw(9) vw(10) !default;
+$--checkbox-bordered-medium-padding : vw(7) vw(20) vw(7) vw(10) !default;
+$--checkbox-bordered-small-padding : vw(5) vw(15) vw(5) vw(10) !default;
+$--checkbox-bordered-mini-padding : vw(3) vw(15) vw(3) vw(10) !default;
+$--checkbox-bordered-medium-input-height : vw(14) !default;
+$--checkbox-bordered-medium-input-width : vw(14) !default;
+$--checkbox-bordered-medium-height : vw(36) !default;
+$--checkbox-bordered-small-input-height : vw(12) !default;
+$--checkbox-bordered-small-input-width : vw(12) !default;
+$--checkbox-bordered-small-height : vw(32) !default;
+$--checkbox-bordered-mini-input-height : vw(12) !default;
+$--checkbox-bordered-mini-input-width : vw(12) !default;
+$--checkbox-bordered-mini-height : vw(28) !default;
+
+/* Radio
+-------------------------- */
+$--radio-font-size : vw(14) !default;
+$--radio-input-height : vw(14) !default;
+$--radio-input-width : vw(14) !default;
+
+$--radio-bordered-height : vw(40) !default;
+$--radio-bordered-padding : vw(12) vw(20) 0 vw(10) !default;
+$--radio-bordered-medium-padding : vw(10) vw(20) 0 vw(10) !default;
+$--radio-bordered-small-padding : vw(8) vw(15) 0 vw(10) !default;
+$--radio-bordered-mini-padding : vw(6) vw(15) 0 vw(10) !default;
+$--radio-bordered-medium-input-height : vw(14) !default;
+$--radio-bordered-medium-input-width : vw(14) !default;
+$--radio-bordered-medium-height : vw(36) !default;
+$--radio-bordered-small-input-height : vw(12) !default;
+$--radio-bordered-small-input-width : vw(12) !default;
+$--radio-bordered-small-height : vw(32) !default;
+$--radio-bordered-mini-input-height : vw(12) !default;
+$--radio-bordered-mini-input-width : vw(12) !default;
+$--radio-bordered-mini-height : vw(28) !default;
+
+$--select-input-font-size : vw(14) !default;
+
+$--select-option-height : vw(34) !default;
+$--select-group-height : vw(30) !default;
+$--select-group-font-size : vw(12) !default;
+
+$--select-dropdown-max-height : vw(274) !default;
+$--select-dropdown-padding : vw(6) 0 !default;
+$--select-dropdown-empty-padding : vw(10) 0 !default;
+
+/* Alert
+-------------------------- */
+$--alert-padding : vw(8) vw(16) !default;
+$--alert-title-font-size : vw(13) !default;
+$--alert-description-font-size : vw(12) !default;
+$--alert-close-font-size : vw(12) !default;
+$--alert-close-customed-font-size : vw(13) !default;
+
+$--alert-icon-size : vw(16) !default;
+$--alert-icon-large-size : vw(28) !default;
+
+/* Message Box
+-------------------------- */
+$--msgbox-width : vw(420) !default;
+$--msgbox-error-font-size : vw(14) !default;
+$--msgbox-font-size: vw(14) !default;
+$--msgbox-content-font-size: vw(16) !default;
+//$--msgbox-padding-primary : vw(15) !default;
+
+/* Message
+-------------------------- */
+$--message-min-width : vw(380) !default;
+$--message-padding : vw(15) vw(15) vw(15) vw(20) !default;
+$--message-close-size : vw(16) !default;
+
+/* Notification
+-------------------------- */
+$--notification-width : vw(330) !default;
+$--notification-padding : vw(14) vw(26) vw(14) vw(13) !default;
+$--notification-radius : vw(8) !default;
+$--notification-icon-size : vw(24) !default;
+$--notification-group-margin : vw(13) !default;
+$--notification-title-font-size : vw(16) !default;
+
+/* Input
+-------------------------- */
+$--input-width : vw(140) !default;
+$--input-height : vw(40) !default;
+$--input-max-width : vw(340) !default;
+
+$--input-medium-font-size : vw(14) !default;
+$--input-medium-height : vw(36) !default;
+
+$--input-small-font-size : vw(13) !default;
+$--input-small-height : vw(32) !default;
+
+$--input-mini-font-size : vw(12) !default;
+$--input-mini-height : vw(28) !default;
+
+/* Group
+-------------------------- */
+$--group-option-offset-bottom : vw(12) !default;
+$--group-title-width : vw(66) !default;
+
+/* Tab
+-------------------------- */
+$--tab-vertical-header-width : vw(90) !default;
+
+/* Button
+-------------------------- */
+$--button-font-size : vw(14) !default;
+$--button-padding-vertical : vw(12) !default;
+$--button-padding-horizontal : vw(20) !default;
+
+$--button-medium-font-size : vw(14) !default;
+$--button-medium-padding-vertical : vw(10) !default;
+$--button-medium-padding-horizontal : vw(20) !default;
+
+$--button-small-font-size : vw(12) !default;
+$--button-small-padding-vertical : vw(9) !default;
+$--button-small-padding-horizontal : vw(15) !default;
+
+$--button-mini-font-size : vw(12) !default;
+$--button-mini-padding-vertical : vw(7) !default;
+$--button-mini-padding-horizontal : vw(15) !default;
+
+/* cascader
+-------------------------- */
+$--cascader-height : vw(200) !default;
+
+/* Switch
+-------------------------- */
+$--switch-core-border-radius : vw(10) !default;
+$--switch-width : vw(40) !default;
+$--switch-height : vw(20) !default;
+$--switch-button-size : vw(16) !default;
+
+/* Dialog
+-------------------------- */
+$--dialog-font-size : vw(14) !default;
+
+/* Pagination
+-------------------------- */
+$--pagination-font-size : vw(13) !default;
+$--pagination-button-width : vw(32.5) !default;
+$--pagination-button-height : vw(28) !default;
+
+/* Popover
+-------------------------- */
+$--popover-title-font-size : vw(16) !default;
+
+/* Tooltip
+-------------------------- */
+$--tooltip-font-size : vw(12) !default;
+$--tooltip-padding : vw(10) !default;
+
+/* Tag
+-------------------------- */
+$--tag-padding : 0 vw(10) !default;
+$--tag-font-size : vw(12) !default;
+
+/* Badge
+-------------------------- */
+$--badge-radius : vw(10) !default;
+$--badge-font-size : vw(12) !default;
+$--badge-padding : vw(6) !default;
+$--badge-size : vw(18) !default;
+
+/* Card
+--------------------------*/
+$--card-padding : vw(20) !default;
+
+/* Slider
+--------------------------*/
+$--slider-margin : vw(16) 0 !default;
+$--slider-height : vw(6) !default;
+$--slider-button-size : vw(16) !default;
+$--slider-button-wrapper-size : vw(36) !default;
+$--slider-button-wrapper-offset : vw(-15) !default;
+
+/* Steps
+--------------------------*/
+$--steps-padding : vw(20) !default;
+
+/* Rate
+--------------------------*/
+$--rate-height : vw(20) !default;
+$--rate-icon-size : vw(18) !default;
+$--rate-icon-margin : vw(6) !default;
+
+/* Loading
+--------------------------*/
+$--loading-spinner-size : vw(42) !default;
+$--loading-fullscreen-spinner-size : vw(50) !default;
+
+/* Carousel
+--------------------------*/
+$--carousel-arrow-font-size : vw(12) !default;
+$--carousel-arrow-size : vw(36) !default;
+$--carousel-indicator-width : vw(30) !default;
+$--carousel-indicator-height : vw(30) !default;
+$--carousel-indicator-padding-horizontal : vw(30) !default;
+$--carousel-indicator-padding-vertical : vw(12) !default;
+
+/* Collapse
+--------------------------*/
+$--collapse-header-height : vw(48) !default;
+$--collapse-header-padding : vw(20) !default;
+$--collapse-header-size : vw(30) !default;
+$--collapse-content-size : vw(30) !default;
+
+/* Transfer
+--------------------------*/
+$--transfer-panel-width : vw(200) !default;
+$--transfer-panel-header-height : vw(40) !default;
+$--transfer-panel-footer-height : vw(40) !default;
+$--transfer-panel-body-height : vw(246) !default;
+$--transfer-item-height : vw(30) !default;
+$--transfer-filter-height : vw(30) !default;
+
+/* Header
+  --------------------------*/
+$--header-padding : 0 vw(20) !default;
+
+/* Footer
+--------------------------*/
+$--footer-padding : 0 vw(20) !default;
+
+/* Main
+--------------------------*/
+$--main-padding : vw(20) !default;
+
