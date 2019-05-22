@@ -7,6 +7,7 @@
             return {};
         }
     };
+
 </script>
 <style lang="scss">
     @import "../../src/style_scss/layout";
